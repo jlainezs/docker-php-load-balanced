@@ -1,5 +1,6 @@
 <?php
 session_start();
-echo session_id();
-?>
-<h1>Hola!</h1>
+$count = isset($_SESSION['count']) ? $_SESSION['count'] : 1;
+echo $count;
+$_SESSION['count'] = ++$count;
+
