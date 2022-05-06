@@ -16,6 +16,13 @@ The docker/php8.0-nginx/Dockerfile installs the required modules, including the 
 
 The file docker/conf/php/php.ini configures PHP to handle session using redis, by pointing to the redis container.
 
-## Some url's
+## Some ports
 
-* redis-stack, to inspect redis content, available at port 8003 on the localhost.
+Accessible ports through localhost:
+
+* redis-stack: 8003
+* Load balancer: 8080
+
+## Known bugs
+
+* Add index.php to the URL when browsing... Fallback to index.php is not working.
