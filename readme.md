@@ -1,6 +1,6 @@
 # PHP load balanced demo
 
-Demo of load balancing a PHP setup. It uses redis to handle the PHP session.
+Demo of load balancing a PHP setup using redis to handle the PHP session.
 
 ## Containers
 

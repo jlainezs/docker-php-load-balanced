@@ -6,5 +6,6 @@
 docker/volumes/www/*
 docker/volumes/wwwdata/*
 docker/volumes/log/*
+docker/volumes/redis-data/*
 !.gitkeep
 .env
