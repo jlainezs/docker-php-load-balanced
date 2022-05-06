@@ -1,0 +1,10 @@
+.idea/
+.vscode/
+*.code-workspace/
+!readme.md
+!readme1st.md
+docker/volumes/www/*
+docker/volumes/wwwdata/*
+docker/volumes/log/*
+!.gitkeep
+.env
