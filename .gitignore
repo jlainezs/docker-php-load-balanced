@@ -1,10 +1,12 @@
 .idea/
 .vscode/
 *.code-workspace/
-docker/volumes/
-!docker/volumes/app/**/*
+docker/volumes/log/lb/*
+docker/volumes/log/node?-nginx/*
+docker/volumes/mysql-data/*
+docker/volumes/redis-data/*
 !docker/volumes/**/.gitkeep
 .env
 !readme.md
 !readme1st.md
-!.gitkeep
+!**/.gitkeep
