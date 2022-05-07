@@ -22,14 +22,14 @@ services:
         image: nginx
         container_name: lb-nginx1
         volumes:
-            - ./docker/conf/nginx/default.conf:/etc/nginx/conf.d/default.conf
+            - ./docker/conf/nginx/node1/default.conf:/etc/nginx/conf.d/default.conf
             - ./docker/volumes/log/node1-nginx:/var/log/nginx
             - ./docker/volumes/app:/var/www/html
         ports:
             - ${NGINX1_PORT}:80
         restart: unless-stopped
         depends_on:
-            - php
+            - php1
         networks:
             - lb-net
     node2:
@@ -38,19 +38,19 @@ services:
         image: nginx
         container_name: lb-nginx2
         volumes:
-            - ./docker/conf/nginx/default.conf:/etc/nginx/conf.d/default.conf
+            - ./docker/conf/nginx/node1/default.conf:/etc/nginx/conf.d/default.conf
             - ./docker/volumes/log/node2-nginx:/var/log/nginx
             - ./docker/volumes/app:/var/www/html
         ports:
             - ${NGINX2_PORT}:80
         restart: unless-stopped
         depends_on:
-            - php
+            - php2
         networks:
             - lb-net
-    php:
+    php1:
         build: docker/php8.0-nginx
-        container_name: lb-php
+        container_name: lb-php1
         restart: unless-stopped
         depends_on:
             - redis
@@ -61,6 +61,21 @@ services:
             - ./docker/volumes/app:/var/www/html
         ports:
             - "9000:9000"
+        networks:
+            - lb-net
+    php2:
+        build: docker/php8.0-nginx
+        container_name: lb-php2
+        restart: unless-stopped
+        depends_on:
+            - redis
+            - database
+        volumes:
+            - ./docker/conf/php/php.ini:/usr/local/etc/php/conf.d/php.ini
+            - ./docker/conf/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+            - ./docker/volumes/app:/var/www/html
+        ports:
+            - "9001:9000"
         networks:
             - lb-net
     redis:
