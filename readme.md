@@ -49,4 +49,15 @@ Accessible ports through localhost:
 
 ## Known bugs
 
-* Add index.php to the URL when browsing... Fallback to index.php is not working.
+* Fallback to index.php is not working.
+
+## Running
+
+After `docker-compose up -d --build` (on Windows you may use `docker compose up -d --build`) there will be 7 cotainers running.
+Browse to http://localhost:8080 . You should see a '1' on the page. Reload several times to increase to number shown.
+
+Check the access nodeX-nginx access logs and half of the request must be shown on each file.
+
+Also, http://localhost:8003 should show a PHPREDIS_SESSION containing the session data.
+
+You can fire a second browser or an incognito tab to get another session.
