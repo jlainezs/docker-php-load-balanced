@@ -1,6 +1,7 @@
 # PHP load balanced demo
 
-Demo of load balancing a PHP setup using redis to handle the PHP session.
+Demo of load balancing a PHP setup using redis to handle the PHP session. The purpose of this project is **to play**
+with a load balancer setup to serve a PHP application.
 
 ## Containers
 
