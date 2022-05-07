@@ -3,9 +3,6 @@
 *.code-workspace/
 !readme.md
 !readme1st.md
-docker/volumes/www/*
-docker/volumes/wwwdata/*
-docker/volumes/log/*
-docker/volumes/redis-data/*
 !.gitkeep
+docker/volumes/
 .env

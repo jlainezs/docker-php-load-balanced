@@ -5,8 +5,8 @@ Demo of load balancing a PHP setup using redis to handle the PHP session.
 ## Containers
 
 * 2 nginx nodes
+* 2 php-fpm
 * 1 nginx as load balancer
-* 1 php-fpm
 * 1 redis
 * 1 mysql
 
@@ -22,6 +22,30 @@ Accessible ports through localhost:
 
 * redis-stack: 8003
 * Load balancer: 8080
+
+## Structure
+```
+└── docker
+   ├── conf
+   │  ├── mysql
+   │  └── initdb
+   │  ├── nginx
+   │  │   ├── node1
+   │  │   └── node2
+   │  └── php
+   ├── php8.0-nginx
+   └── volumes
+       ├── app
+       ├── backups
+       ├── log
+       │   ├── lb
+       │   ├── node1-nginx
+       │   └── node2-nginx
+       ├── mysql-data
+       ├── redis-data
+       ├── www
+       └── wwwdata
+```
 
 ## Known bugs
 
